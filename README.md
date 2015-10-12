@@ -33,14 +33,14 @@ usage: Log source simulator [-b <arg>] [-k <arg>] [-l <arg>] [-p <arg>]
  
 To change the cassandra or kafka connexion information, set environment variables :
 
-Cassandra:
+Cassandra settings:
 ```
 export cassandra_contact_points="..."
 export cassandra_local_dc="..."
 export cassandra_read_timeout="..."
 ```
 
-Kafka
+Kafka settings:
 ```
 export kafka_broker_list="..."
 ```
