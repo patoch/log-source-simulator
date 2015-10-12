@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Created by patrick on 03/02/15.
  */
-public class Cassandra {
+public abstract class Cassandra {
 
     private static Cluster s_cluster;
     private static Session s_session;
