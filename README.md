@@ -3,7 +3,7 @@
 This simulator produces random logs real time. These can be pushed to Cassandra or Kafka for testing purpose.
 
 
-**Build the simulator**
+**Build**
 
 At the project root:
 ```
@@ -33,7 +33,7 @@ usage: Log source simulator [-b <arg>] [-k <arg>] [-l <arg>] [-p <arg>]
  
 To change the cassandra or kafka connexion information, set environment variables :
 
-** Using with cassandra **
+**Using with cassandra**
 
 Create keyspace and table :
 ```
