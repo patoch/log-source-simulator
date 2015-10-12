@@ -33,14 +33,39 @@ usage: Log source simulator [-b <arg>] [-k <arg>] [-l <arg>] [-p <arg>]
  
 To change the cassandra or kafka connexion information, set environment variables :
 
-Cassandra settings:
+** Using with cassandra **
+
+Create keyspace and table :
+```
+DROP KEYSPACE IF EXISTS log_ks;
+CREATE KEYSPACE log_ks WITH replication = {'class': 'SimpleStrategy', 'replication_factor' : 1};
+
+USE log_ks;
+
+CREATE TABLE IF NOT EXISTS logs (
+ source_id TIMEUUID,
+ bucket_ts TIMESTAMP,
+ ts TIMESTAMP,
+ id UUID,
+ type TEXT,
+ tags MAP<TEXT,TEXT>,
+ timestamps MAP<TIMESTAMP, TEXT>,
+ raw TEXT,
+ PRIMARY KEY (( source_id, bucket_ts ),  ts, id)
+)
+WITH default_time_to_live = 26780400;
+```
+ 
+Export Cassandra settings if not running locally:
 ```
 export cassandra_contact_points="..."
 export cassandra_local_dc="..."
 export cassandra_read_timeout="..."
 ```
 
-Kafka settings:
+**Using with Kafka**
+
+Export Kafka settings if not running locally:
 ```
 export kafka_broker_list="..."
 ```
