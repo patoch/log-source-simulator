@@ -24,20 +24,14 @@ public class KafkaLogSink implements LogSink {
         return onlyInstance;
     }
 
+
     private Producer<String, String> producer;
 
+
     private KafkaLogSink() {
-        Properties props = new Properties();
-
-        props.put("metadata.broker.list", "127.0.0.1:9092");
-        props.put("serializer.class", "kafka.serializer.StringEncoder");
-        //props.put("partitioner.class", "example.producer.SimplePartitioner");
-        props.put("request.required.acks", "1");
-
-        ProducerConfig config = new ProducerConfig(props);
-        producer = new Producer<String, String>(config);
-
+        producer = Kafka.getProducer();
     }
+
 
     public void push(Log log) {
         KeyedMessage<String, String> data = new KeyedMessage<String, String>("logs", log.toString());

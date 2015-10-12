@@ -6,6 +6,7 @@ import com.datastax.driver.mapping.annotations.Column;
 import com.datastax.driver.mapping.annotations.PartitionKey;
 import com.datastax.driver.mapping.annotations.Table;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Map;
@@ -93,7 +94,6 @@ public class Log {
         this.bucketTs = bucketTs;
     }
 
-
     public Map<String, String> getTags() {
         return tags;
     }
@@ -132,6 +132,12 @@ public class Log {
 
     public UUID getId() {
         return id;
+    }
+
+
+    @Override
+    public String toString() {
+        return String.format("%s;%s;%s", sourceId, new SimpleDateFormat("yyyy-MM-dd HH:ss:SSS").format(this.timestamp), raw);
     }
 
 
