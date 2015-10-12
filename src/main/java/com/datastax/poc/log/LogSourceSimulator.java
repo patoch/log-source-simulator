@@ -45,6 +45,8 @@ public class LogSourceSimulator {
         }
         catch( ParseException e ) {
             System.out.println( "Unexpected exception:" + e.getMessage() );
+            HelpFormatter formatter = new HelpFormatter();
+            formatter.printHelp("Log source simulator", options, true);
             System.exit(1);
         }
 
