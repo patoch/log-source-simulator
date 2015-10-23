@@ -137,7 +137,7 @@ public class Log {
 
     @Override
     public String toString() {
-        return String.format("%s;%s;%s", sourceId, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS").format(this.timestamp), raw);
+        return String.format("%s;%s;%s;%s", sourceId, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS").format(this.timestamp), type, raw);
     }
 
 
