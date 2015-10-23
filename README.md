@@ -65,9 +65,11 @@ export cassandra_read_timeout="..."
 
 **Using with Kafka**
 
+Create the topic "logs"
+
 Export Kafka settings if not running locally:
 ```
-export kafka_broker_list="..."
+export kafka_broker_list="ip1:9092,ip2:9092"
 ```
  
  

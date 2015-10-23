@@ -123,7 +123,7 @@ public class Log {
     }
 
     public void setRaw(String raw) {
-        this.raw = raw;
+        this.raw = raw.replaceAll(";","");
     }
 
     public void setId(UUID id) {
@@ -137,7 +137,7 @@ public class Log {
 
     @Override
     public String toString() {
-        return String.format("%s;%s;%s", sourceId, new SimpleDateFormat("yyyy-MM-dd HH:ss:SSS").format(this.timestamp), raw);
+        return String.format("%s;%s;%s", sourceId, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS").format(this.timestamp), raw);
     }
 
 
