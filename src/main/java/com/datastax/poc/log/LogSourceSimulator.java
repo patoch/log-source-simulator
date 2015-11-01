@@ -105,7 +105,7 @@ public class LogSourceSimulator {
 
         while (true) {
 
-            if (executorService.isShutdown() || logCount >= logsToSend ) {
+            if (executorService.isShutdown() || (logCount >= logsToSend && logsToSend != -1)) {
                 break;
             }
 
@@ -118,6 +118,7 @@ public class LogSourceSimulator {
                 stop();
             }
         }
+        System.exit(0);
     }
 
     public void stop() {
