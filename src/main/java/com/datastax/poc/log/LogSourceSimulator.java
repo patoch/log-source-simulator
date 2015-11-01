@@ -49,7 +49,7 @@ public class LogSourceSimulator {
             bucketTimeInSeconds = Integer.parseInt(line.getOptionValue("bucket-time", "300"));
             threadCount = Integer.parseInt(line.getOptionValue("thread-count", "5"));
             pauseTime = Integer.parseInt(line.getOptionValue("pause", "5"));
-            logsTosend = Integer.parseInt(line.getOptionValue("numlogs", "100"));
+            logsTosend = Integer.parseInt(line.getOptionValue("numlogs", "-1"));
         }
         catch( ParseException e ) {
             System.out.println( "Unexpected exception:" + e.getMessage() );
@@ -105,7 +105,7 @@ public class LogSourceSimulator {
 
         while (true) {
 
-            if (executorService.isShutdown() || logCount >= logsToSend) {
+            if (executorService.isShutdown() || logCount >= logsToSend || logsToSend == -1 ) {
                 break;
             }
 
