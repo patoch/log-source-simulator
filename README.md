@@ -18,16 +18,17 @@ To run it locally with Cassandra or Kafka, execute the jar:
 java -jar log-source-simulator-1.0-SNAPSHOT-jar-with-dependencies.jar
 
 
-Options:
-usage: Log source simulator [-b <arg>] [-k <arg>] [-l <arg>] [-p <arg>]
-       [-s <arg>] [-t <arg>]
+usage: Log source simulator [-b <arg>] [-k <arg>] [-l <arg>] [-n <arg>]
+       [-p <arg>] [-s <arg>] [-t <arg>]
  -b,--bucket-time <arg>    Bucket time in seconds. 300 s by default.
  -k,--sink <arg>           Target sink [kafka|cassandra]. Kafka by
                            default.
  -l,--log-types <arg>      Comma separated list of log types.
+ -n,--numlogs <arg>        Number of logs to send.
  -p,--pause <arg>          Pause in ms between each created log. 5ms by
                            default.
- -s,--sources <arg>        Log source ids, as a comma separated list. Single random id by default.
+ -s,--sources <arg>        Log source ids, as a comma separated list.
+                           Single random id by default.
  -t,--thread-count <arg>   Number of threads. 5 by default.
  ```
  
