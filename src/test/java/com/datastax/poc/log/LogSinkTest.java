@@ -25,7 +25,7 @@ public class LogSinkTest {
     @Test
     public void insertAndFindLog()
     {
-        Log log = LogBuilder.buildLog(s_sourceId, new Date(), Random.getFromArray(TYPES), Random.getAsciiString(500), s_bucketTimeInSeconds);
+        Log log = LogBuilder.buildLog(s_sourceId, new Date(), Random.getFromStringArray(TYPES), Random.getAsciiString(500), s_bucketTimeInSeconds);
         s_sink.push(log);
 
         Log log2 = s_sink.find(log.getSourceId(), log.getBucketTs(), log.getTimestamp(), log.getId());

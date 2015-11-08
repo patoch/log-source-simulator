@@ -2,6 +2,7 @@ package com.datastax.poc.log.utils;
 
 import org.apache.commons.lang.RandomStringUtils;
 import java.util.Date;
+import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -13,7 +14,11 @@ public class Random {
         return RandomStringUtils.randomAscii(count);
     }
 
-    public static String getFromArray(String[] array) {
+    public static String getFromStringArray(String[] array) {
+        return array[ThreadLocalRandom.current().nextInt(0, array.length)];
+    }
+
+    public static UUID getFromUUIDArray(UUID[] array) {
         return array[ThreadLocalRandom.current().nextInt(0, array.length)];
     }
 

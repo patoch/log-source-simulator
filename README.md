@@ -27,7 +27,7 @@ usage: Log source simulator [-b <arg>] [-k <arg>] [-l <arg>] [-p <arg>]
  -l,--log-types <arg>      Comma separated list of log types.
  -p,--pause <arg>          Pause in ms between each created log. 5ms by
                            default.
- -s,--source <arg>         Log source id. Random by default.
+ -s,--sources <arg>        Log source ids, as a comma separated list. Single random id by default.
  -t,--thread-count <arg>   Number of threads. 5 by default.
  ```
  
